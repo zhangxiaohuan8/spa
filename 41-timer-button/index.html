@@ -8,9 +8,21 @@
     <link rel="stylesheet" href="./timer-button.css">
 </head>
 <body>
+    <label>初始状态：</label>
+    <input type="radio" name="status" value="true">
+    <label>启用</label>
+    <input type="radio" name="status" value="false" checked="checked">
+    <label>禁用</label>
+    <br>
+    <label>禁用时长：</label>
+    <input type="number" min="0" max="100" value="6" autofocus>
+    秒<br>
+    <label>按钮文字：</label>
+    <input type="text" maxlength="5" value="同意" required>
+    <br>
     <input id='add' type="button" value="添加定时器按钮"/>
     <hr>
-    <div id="main">
+    <div class="main">
 
     </div> 
     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -18,12 +30,17 @@
     <script>
         $(function(){
             var $btnAdd=$('#add');
+            var e,
+            i = $('input[type="number"]'),
+            n = $('input[type="text"]');
             $btnAdd.click(function(){
+                e = $('input[type="radio"]:checked'),
                 $timerButton.show({
-                    num:6,
-                    title:'发送验证码',
+                    num: Number(i.val()),
+                    enable:"true" === e.val(),
+                    title: n.val(),
                     onClick:function(){
-                        console.log('点击了定时器按钮');
+                        alert("你终于同意了")
                     }
                 })
             })
