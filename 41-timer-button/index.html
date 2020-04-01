@@ -34,8 +34,17 @@
             i = $('input[type="number"]'),
             n = $('input[type="text"]');
             $btnAdd.click(function(){
-                e = $('input[type="radio"]:checked'),
-                $timerButton.show({
+                e = $('input[type="radio"]:checked');
+                // $timerButton.show({
+                //     num: Number(i.val()),
+                //     enable:"true" === e.val(),
+                //     title: n.val(),
+                //     onClick:function(){
+                //         alert("你终于同意了")
+                //     }
+                // })
+                var tb=new TimerButton();
+                tb.show({
                     num: Number(i.val()),
                     enable:"true" === e.val(),
                     title: n.val(),
